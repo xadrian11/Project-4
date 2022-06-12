@@ -1,0 +1,41 @@
+{
+  "name": "instagram-clone",
+  "private": "true",
+  "engines": {
+    "node": ">=16"
+  },
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "tsc": "npm run tsc -ws",
+    "lint": "npm run lint -ws",
+    "test": "npm run test -ws",
+    "start": "run-p start:*",
+    "start:proxy": "node proxy.js",
+    "start:backend": "npm run start -w backend",
+    "start:frontend": "npm run start -w frontend",
+    "dev": "run-p dev:*",
+    "dev:backend": "npm run dev -w backend",
+    "dev:frontend": "npm run dev -w frontend",
+    "postinstall": "npm run build -w frontend",
+    "prepare": "is-ci || husky install"
+  },
+  "dependencies": {
+    "@typescript-eslint/parser": "^5.16.0",
+    "eslint": "^8.6.0",
+    "firebase-admin": "^10.0.2",
+    "http-proxy": "^1.18.1",
+    "husky": "^7.0.0",
+    "is-ci": "^3.0.1",
+    "jest": "^27.4.7",
+    "lint-staged": "^12.1.7",
+    "node-fetch": "^3.2.3",
+    "npm-run-all": "^4.1.5",
+    "passport-jwt": "^4.0.0",
+    "prettier": "^2.5.1",
+    "serve": "^13.0.2",
+    "typescript": "^4.6.3"
+  }
+}
